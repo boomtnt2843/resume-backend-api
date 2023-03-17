@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 var expressApp = expressFunction();
 
 const url = `${process.env.URL_DB}/?retryWrites=true&w=majority` || "";
+const port = process.env.PORT
 
 const config = {
     autoIndex: true,
@@ -39,6 +40,6 @@ expressApp.use('/language', require('./routes/language'))
 expressApp.use('/education', require('./routes/education'))
 expressApp.use('/exprience', require('./routes/experience'))
 
-expressApp.listen(4200, function () {
-    console.log('Listening on port 4200');
+expressApp.listen(port, function () {
+    console.log(`Listening on port ${port}`);
 });
